@@ -11,7 +11,7 @@ include RSpec::Matchers
 class BasePage < Test::Unit::TestCase
 
 	def initialize
-		Selenium::WebDriver::Chrome.driver_path='./features/Drivers/chromedriver'
+		Selenium::WebDriver::Chrome.driver_path='/var/lib/jenkins/workspace/monitor/features/Drivers/chromedriver'
 		options = Selenium::WebDriver::Chrome::Options.new
 		options.add_argument('--headless')
 		@driver = Selenium::WebDriver.for :chrome, options: options
