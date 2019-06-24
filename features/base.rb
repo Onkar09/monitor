@@ -12,9 +12,10 @@ class BasePage < Test::Unit::TestCase
 
 	def initialize
 		# Selenium::WebDriver::Chrome.driver_path='./features/Drivers/chromedriver'
-		options = Selenium::WebDriver::Chrome::Options.new
-		options.add_argument('--headless')
-		@driver = Selenium::WebDriver.for :chrome, options: options
+		# options = Selenium::WebDriver::Chrome::Options.new
+		# options.add_argument('--headless')
+		# @driver = Selenium::WebDriver.for :chrome, options: options
+		@driver = Selenium::WebDriver.for :chrome
 		# @driver = Selenium::WebDriver::for :firefox
 		@driver.manage.window.resize_to(1440,900)
 		# @driver.manage.window.maximize
