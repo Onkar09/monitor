@@ -6,7 +6,7 @@ require 'webshot'
 require 'phantomjs/poltergeist'
 require "slack"
 require 'mail'
-
+require 'net/http'
 
 
 class NewRelic < BasePage
@@ -49,8 +49,8 @@ class NewRelic < BasePage
 	end
 
 	def new_relic_errors_screenshot
-		@driver.save_screenshot('/Users/onkar/Documents/cucumber_project/features/screenshots/new_relic_error.png')
-		@screenshot_url = '/Users/onkar/Documents/cucumber_project/features/screenshots/new_relic_error.png'
+		@driver.save_screenshot('./features/screenshots/new_relic_error.png')
+		@screenshot_url = './features/screenshots/new_relic_error.png'
 		# slack_upload(@screenshot_url)
 		send_mail(@screenshot_url, @actual_error)
 	end
