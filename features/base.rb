@@ -14,12 +14,19 @@ class BasePage < Test::Unit::TestCase
 	def initialize
 		Selenium::WebDriver::Chrome.driver_path='./features/Drivers/chromedriver_ubuntu'
 		chrome_options = Selenium::WebDriver::Chrome::Options.new
-		# options.add_argument('--headless')
-		# chrome_options = Options()
-		chrome_options.add_argument('--headless')
-		chrome_options.add_argument('--no-sandbox')
-		chrome_options.add_argument('--disable-dev-shm-usage')
-		chrome_options.setExperimentalOption("w3c", false)
+		# # options.add_argument('--headless')
+		# # chrome_options = Options()
+		# chromeOptions: {
+  #     		args: %w[headless disable-gpu no-sandbox disable-dev-shm-usage],
+  #     		w3c: false
+  #   	}
+		# chrome_options.add_argument('--headless')
+		# chrome_options.add_argument('--no-sandbox')
+		# chrome_options.add_argument('--disable-dev-shm-usage')
+		chrome_options: {
+  			args: %w[headless disable-gpu no-sandbox disable-dev-shm-usage],
+  			w3c: false
+		}
 		@driver = Selenium::WebDriver.for :chrome, options: chrome_options
 		@driver.manage.timeouts.implicit_wait = 120 # seconds
 		# @driver = Selenium::WebDriver::for :chrome
@@ -27,6 +34,13 @@ class BasePage < Test::Unit::TestCase
 		# @driver.manage.window.resize_to(1440,900)
 		# @driver.manage.window.resize_to(411,823)
 		# @driver.manage.window.maximize
+
+		# capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
+		
+  		
+
+
+
 	end
 
 
