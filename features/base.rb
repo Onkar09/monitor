@@ -12,7 +12,7 @@ require 'rspec'
 class BasePage < Test::Unit::TestCase
 
 	def initialize
-		Selenium::WebDriver::Chrome.driver_path='./features/Drivers/chromedriver'
+		Selenium::WebDriver::Chrome.driver_path='./features/Drivers/chromedriver_ubuntu'
 		# options = Selenium::WebDriver::Chrome::Options.new
 		# options.add_argument('--headless')
 		# @driver = Selenium::WebDriver.for :chrome, options: options
