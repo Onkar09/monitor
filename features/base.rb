@@ -12,11 +12,15 @@ require 'rspec'
 class BasePage < Test::Unit::TestCase
 
 	def initialize
-		Selenium::WebDriver::Chrome.driver_path='./features/Drivers/chromedriver_ubuntu'
+		# Selenium::WebDriver::Chrome.driver_path='./features/Drivers/chromedriver_ubuntu'
 		# options = Selenium::WebDriver::Chrome::Options.new
 		# options.add_argument('--headless')
-		# @driver = Selenium::WebDriver.for :chrome, options: options
-		@driver = Selenium::WebDriver.for :chrome
+		chrome_options = Options()
+		chrome_options.add_argument('--headless')
+		chrome_options.add_argument('--no-sandbox')
+		chrome_options.add_argument('--disable-dev-shm-usage')
+		@driver = Selenium::WebDriver.for :chrome, options: chrome_options
+		# @driver = Selenium::WebDriver::for :chrome
 		# @driver = Selenium::WebDriver::for :firefox
 		# @driver.manage.window.resize_to(1440,900)
 		# @driver.manage.window.resize_to(411,823)
