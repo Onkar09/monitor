@@ -45,7 +45,7 @@ class NewRelic < BasePage
 		@count = @error[3].split(//).map {|x| x[/\d+/]}.compact.join("").to_i
 		@actual_error = "Error is ===>>> #{@error[1]}, #{@error[2]}, #{@error[3]}"
 		puts @actual_error
-		new_relic_errors_screenshot
+		send_mail_without_screenshot(@actual_error)
 	end
 
 	def new_relic_errors_screenshot
@@ -79,6 +79,19 @@ class NewRelic < BasePage
 			body     "#{error}"
 		end
 		mail.add_file(screenshot_url)
+		mail.delivery_method :sendmail
+
+		mail.deliver
+	end
+
+	def send_mail_without_screenshot(error)
+		mail = Mail.new do
+			from     "onkar@limeroad.com"
+			# to       "p0-qa@lmrd.pagerduty.com" # for Pager Duty alert
+			to       "onkar@limeroad.com"
+			subject  "P0 #{error}"
+			body     "#{error}"
+		end
 		mail.delivery_method :sendmail
 
 		mail.deliver
