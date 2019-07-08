@@ -13,9 +13,9 @@ class BasePage < Test::Unit::TestCase
 
 	def initialize
 		# Selenium::WebDriver::Chrome.driver_path='./features/Drivers/chromedriver_ubuntu'
-		# options = Selenium::WebDriver::Chrome::Options.new
+		chrome_options = Selenium::WebDriver::Chrome::Options.new
 		# options.add_argument('--headless')
-		chrome_options = Options()
+		# chrome_options = Options()
 		chrome_options.add_argument('--headless')
 		chrome_options.add_argument('--no-sandbox')
 		chrome_options.add_argument('--disable-dev-shm-usage')
