@@ -13,7 +13,7 @@ class BasePage < Test::Unit::TestCase
 
 	def initialize
 		Selenium::WebDriver::Chrome.driver_path='./features/Drivers/chromedriver_ubuntu'
-		chrome_options = Selenium::WebDriver::Chrome::Options.new
+		chromeOptions = Selenium::WebDriver::Chrome::Options.new
 		# # options.add_argument('--headless')
 		# # chrome_options = Options()
 		# chromeOptions: {
@@ -23,11 +23,11 @@ class BasePage < Test::Unit::TestCase
 		# chrome_options.add_argument('--headless')
 		# chrome_options.add_argument('--no-sandbox')
 		# chrome_options.add_argument('--disable-dev-shm-usage')
-		chrome_options: {
+		chromeOptions: {
   			args: %w[headless disable-gpu no-sandbox disable-dev-shm-usage],
   			w3c: false
 		}
-		@driver = Selenium::WebDriver.for :chrome, options: chrome_options
+		@driver = Selenium::WebDriver.for :chrome, options: chromeOptions
 		@driver.manage.timeouts.implicit_wait = 120 # seconds
 		# @driver = Selenium::WebDriver::for :chrome
 		# @driver = Selenium::WebDriver::for :firefox
