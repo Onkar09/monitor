@@ -31,7 +31,7 @@ class NewRelic < BasePage
 	def check_error_rate
 		@error_rates = @driver.find_elements(:css, "g.highcharts-axis-labels text[x='0']")
 		@error_rates.each do |rate|
-			if rate.text.to_f == 0.005
+			if rate.text.to_f == 0.05
 				get_errors
 			end
 		end
