@@ -20,6 +20,7 @@ class BasePage < Test::Unit::TestCase
 		chrome_options.add_argument('--no-sandbox')
 		chrome_options.add_argument('--disable-dev-shm-usage')
 		@driver = Selenium::WebDriver.for :chrome, options: chrome_options
+		@driver.manage.timeouts.implicit_wait = 120 # seconds
 		# @driver = Selenium::WebDriver::for :chrome
 		# @driver = Selenium::WebDriver::for :firefox
 		# @driver.manage.window.resize_to(1440,900)
